@@ -2,7 +2,7 @@
 #  STOCKPRO — Servidor Flask + Base de datos SQLite
 # ============================================================
 
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_cors import CORS
 import sqlite3
 import os
@@ -130,6 +130,13 @@ def get_db():
 # ============================================================
 #  RUTAS — PRODUCTOS
 # ============================================================
+@app.route('/')
+def inicio():
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:path>')
+def archivos(path):
+    return send_from_directory('.', path)
 
 @app.route('/api/productos', methods=['GET'])
 def listar_productos():

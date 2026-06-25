@@ -2,7 +2,7 @@
 //  STOCKPRO — Frontend conectado al servidor Flask
 // ============================================================
 
-const API = 'http://localhost:5000/api';
+const API = '/api';
 
 let productos = [];
 let ventas    = [];
